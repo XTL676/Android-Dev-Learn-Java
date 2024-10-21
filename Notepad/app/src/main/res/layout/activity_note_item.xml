@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_note_list"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".NoteItem">
+
+    <TextView
+        android:id="@+id/note_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:text="旅行"
+        android:textColor="#000000"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/note_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lines="2"
+        android:maxLines="2"
+        android:minLines="2"
+        android:paddingLeft="10dp"
+        android:text="1. 十一决定去三亚旅游\n2. 元旦去天津旅游一天"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/note_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:text="7021年10月11日 06:11:45"
+        android:textSize="15sp" />
+</LinearLayout>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddNote"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#FFFFFF"
+            android:backgroundTint="#673AB7"
+            android:contentDescription="返回主页"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            app:srcCompat="?attr/homeAsUpIndicator"
+            app:tint="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="10"
+            android:background="#673AB7"
+            android:gravity="center"
+            android:text="添加记录"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/et_title"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:ems="10"
+            android:hint="请输入标题"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/etm_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="请输入要记录的内容"
+            android:inputType="textMultiLine" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btn_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#FFFFFF"
+            android:contentDescription="清楚内容"
+            app:srcCompat="@android:drawable/ic_menu_delete" />
+
+        <ImageButton
+            android:id="@+id/btn_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#FFFFFF"
+            android:contentDescription="保存内容"
+            app:srcCompat="@android:drawable/ic_menu_save" />
+    </LinearLayout>
+</LinearLayout>

@@ -11,9 +11,12 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import org.xlyo.notepad.bean.NoteBean;
+import org.xlyo.notepad.util.CommonUtil;
 import org.xlyo.notepad.util.NoteDbHelper;
 
 import java.time.Instant;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 
 public class AddNote extends AppCompatActivity {
 
@@ -40,9 +43,9 @@ public class AddNote extends AppCompatActivity {
             MainActivity.noteItemAdapter.AddNote(
                     new NoteBean(title.getText().toString(),
                     content.getText().toString(),
-                            Instant.now().toString())
+                            CommonUtil.getTimeNow())
             );
-            ((ListView) findViewById(R.id.note_list)).deferNotifyDataSetChanged();
+            MainActivity.noteItemAdapter.notifyDataSetChanged();
             finish();
         });
     }

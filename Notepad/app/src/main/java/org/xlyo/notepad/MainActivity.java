@@ -54,8 +54,8 @@ public class MainActivity extends AppCompatActivity {
             builder.setMessage("是否删除此记录？")
                     .setPositiveButton("删除", (dialog, which) -> {
                         // 执行删除操作
-                        MainActivity.noteItemAdapter.DelNote((NoteBean) MainActivity.noteItemAdapter.getItem(i)); // 移除指定位置的元素
-                        ((NoteItemAdapter) noteList.getAdapter()).notifyDataSetChanged(); // 通知适配器数据已更改
+                        noteItemAdapter.DelNote((NoteBean) noteItemAdapter.getItem(i)); // 移除指定位置的元素
+                        noteItemAdapter.notifyDataSetChanged();
                     })
                     .setNegativeButton("取消", (dialog, which) -> {
                         // 用户选择取消，不做任何操作

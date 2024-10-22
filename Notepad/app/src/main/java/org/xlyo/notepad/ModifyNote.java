@@ -11,6 +11,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import org.xlyo.notepad.bean.NoteBean;
+import org.xlyo.notepad.util.CommonUtil;
 
 import java.time.Instant;
 
@@ -38,12 +39,15 @@ public class ModifyNote extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
 
         findViewById(R.id.btn_mod_save).setOnClickListener(v -> {
-            MainActivity.noteDbHelper.updateNote(
+            MainActivity.noteItemAdapter.UpdateNote(
                     String.valueOf(bundle.getInt("id")),
-                    title.getText().toString(),
-                    content.getText().toString(),
-                    Instant.now().toString());
-            ((ListView) findViewById(R.id.note_list)).deferNotifyDataSetChanged();
+                    new NoteBean(
+                            title.getText().toString(),
+                            content.getText().toString(),
+                            CommonUtil.getTimeNow())
+            );
+            MainActivity.noteItemAdapter.notifyDataSetChanged();
+            finish();
         });
 
         if (bundle != null && bundle.containsKey("note")) {

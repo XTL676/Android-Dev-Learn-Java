@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import org.xlyo.notepad.bean.NoteBean;
 
+import java.time.Instant;
 import java.util.List;
 
 public class NoteItemAdapter extends BaseAdapter {
@@ -32,6 +33,19 @@ public class NoteItemAdapter extends BaseAdapter {
         int index = noteList.lastIndexOf(note);
         noteList.remove(note);
         MainActivity.noteDbHelper.deleteNote(Integer.toString(index));
+        if (noteList.isEmpty()) MainActivity.noteDbHelper.deleteAllNotes();
+    }
+
+    public void UpdateNote(String id, NoteBean note) {
+        MainActivity.noteDbHelper.updateNote(
+                id,
+                note.getTitle(),
+                note.getContent(),
+                note.getTime());
+        NoteBean bean = noteList.get(Integer.parseInt(id));
+        bean.setTitle(note.getTitle());
+        bean.setContent(note.getContent());
+        bean.setTime(note.getTime());
     }
 
     @Override

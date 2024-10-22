@@ -5,7 +5,10 @@
     android:id="@+id/main_note_list"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/shape_corners"
     android:orientation="vertical"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
     tools:context=".NoteItem">
 
     <TextView

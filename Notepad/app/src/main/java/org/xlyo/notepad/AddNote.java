@@ -33,17 +33,19 @@ public class AddNote extends AppCompatActivity {
 
         TextView title = (TextView) findViewById(R.id.et_title);
         TextView content = (TextView) findViewById(R.id.etm_content);
+        TextView time = (TextView) findViewById(R.id.et_time);
 
         findViewById(R.id.btn_back).setOnClickListener(v -> finish());
         findViewById(R.id.btn_clear).setOnClickListener(v -> {
             title.setText("");
             content.setText("");
+            time.setText("");
         });
         findViewById(R.id.btn_save).setOnClickListener(v -> {
             MainActivity.noteItemAdapter.AddNote(
                     new NoteBean(title.getText().toString(),
                     content.getText().toString(),
-                            CommonUtil.getTimeNow())
+                            CommonUtil.convertTime(time.getText().toString()))
             );
             MainActivity.noteItemAdapter.notifyDataSetChanged();
             finish();

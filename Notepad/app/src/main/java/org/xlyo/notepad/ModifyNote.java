@@ -30,11 +30,13 @@ public class ModifyNote extends AppCompatActivity {
 
         TextView title = (TextView) findViewById(R.id.et_title);
         TextView content = (TextView) findViewById(R.id.etm_content);
+        TextView time = (TextView) findViewById(R.id.et_time2);
 
         findViewById(R.id.btn_back).setOnClickListener(v -> finish());
         findViewById(R.id.btn_clear).setOnClickListener(v -> {
             title.setText("");
             content.setText("");
+            time.setText("");
         });
         Bundle bundle = getIntent().getExtras();
 
@@ -44,7 +46,7 @@ public class ModifyNote extends AppCompatActivity {
                     new NoteBean(
                             title.getText().toString(),
                             content.getText().toString(),
-                            CommonUtil.getTimeNow())
+                            CommonUtil.convertTime(time.getText().toString()))
             );
             MainActivity.noteItemAdapter.notifyDataSetChanged();
             finish();
@@ -55,6 +57,9 @@ public class ModifyNote extends AppCompatActivity {
             ((TextView) findViewById(R.id.et_title)).setText(note.getTitle());
             ((TextView) findViewById(R.id.etm_content)).setText(note.getContent());
             ((TextView) findViewById(R.id.mod_note_time)).setText(note.getTime());
+            ((TextView) findViewById(R.id.et_time2)).setText(note.getTime()
+                            .replace("年","/")
+                            .replace("月","/").replace("日",""));
         }
     }
 }
